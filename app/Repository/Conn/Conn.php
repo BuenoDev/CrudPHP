@@ -120,13 +120,11 @@ class Conn{
             $set[] = $key . ' = :' . $key;
         }
         $set = implode(', ', $set);
-        
-        //UPDATE TABLE SET key = :key,key2 = :key2
 
         $sql = "UPDATE $table
                 SET $set
                 WHERE id = $id";
-        echo '<br>'.$sql.'<br>';
+                
         try{
             $stmt = $conn->prepare($sql);
             $stmt->execute($data);    

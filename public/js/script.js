@@ -1,8 +1,11 @@
 $(function(){
-    $('.submit').submit(function(event){
-        event.preventDefault();
-        var name = $('.name');
-        var email = $('.email');
-        $.post('')
+    $('.submit').click(function(event){
+        //event.preventDefault();
+        var name = $('.name').val();
+        var email = $('.email').val();
+        $.post('./../../app/Controller/indexController.php',{
+            'name' : name,
+            'email':email
+        });
     });
 });
