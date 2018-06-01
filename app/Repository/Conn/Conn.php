@@ -152,12 +152,15 @@ class Conn{
             $stmt = $conn->prepare($sql); 
             $stmt->execute();
             // set the resulting array to associative
-             $stmt->setFetchMode(PDO::FETCH_ASSOC);  
-            
+            $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+            $result; 
+            foreach($stmt as $data){
+                $result = $data;
+            }
         }catch(PDOException $e){
             echo "Find Error <br>" . $e->getMessage();
         }finally{
-            return $stmt;
+            return $result;
         }
     }
 

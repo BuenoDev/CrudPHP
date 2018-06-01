@@ -1,7 +1,8 @@
 <?php
 require __DIR__.'./../Repository/Conn/Conn.php';
+//require __DIR__.'/Model.php';
 
-class User{
+class User {
     
     public $name;
     public $email;
@@ -23,21 +24,14 @@ class User{
      * @param integer $id
      * @return User
      */
-    static function loadFromDb(int $id){
+    public static function loadFromDb(int $id){
     
         $table = 'test';
         $conn = new Conn();
         $userData = $conn->findById($table,$id);
 
         if($userData != null){
-            $id = $userData['id'];
-            $name = $userData['nome'];
-            $email = $userData['email'];
-
-            $user = new User($name,$email);
-            $user->id = $id;
-
-            return $user;
+            return User::toObject($userData);
         }else{
             echo 'Esse objeto nao existe';
             return null;
@@ -54,10 +48,10 @@ class User{
         $table = 'test';
         $conn = new Conn();
 
-        $table = $conn->findAll($table);
+        $data = $conn->findAll($table);
         $users = [];
 
-        foreach($table as $row){
+        foreach($data as $row){
             $users[] = User::toObject($row);
         }
 
@@ -100,7 +94,6 @@ class User{
      */
     public function save(){
         
-        
         $table = 'test';
         $conn = new Conn();
 
@@ -111,5 +104,16 @@ class User{
         }        
     }
 
+    /**
+     * Deleta usuário
+     *
+     * @return boolean
+     */
+    public function delete(){
+        $table = 'test';
+        $conn = new Conn();
+
+        return $conn->deleteById($table,$this->id);
+    }
     
 }
