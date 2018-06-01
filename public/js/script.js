@@ -10,16 +10,15 @@ function addLine(rowId,user){
     return line;
 }
 function renderTable(array){
-
     var rowId = 0;
-    var table = '<table><tr><th>Id</th><th>Nome</th><th>E-mail </th></tr>';
+    var table = '<thead><tr><th>Id</th><th>Nome</th><th>E-mail </th></tr><thead><tbody>';
     
     array.forEach(user => {
         table += addLine(rowId,user);
         rowId++;
     });
-    table += '</table>';
-    $('.table').append(table);
+    table += '</tbody>';
+    $('table').append(table);
 }
 function loadTable(){
     $.getJSON(controllerURL,{'call':'renderTable'},function(response){
@@ -28,20 +27,21 @@ function loadTable(){
     });
 }
 function reloadTable(){
-    $('.table').empty();
+    $('table').empty();
     loadTable();
 }
 
+//Starting JQuery
 $(document).ready(function(){
-    
-
+    // Carrega a tabela ao iniciar a página
     loadTable();
     
     //save on submit
-    $('.submit').click(function(event){
+    $('.btn').click(function(event){
         event.preventDefault();
-        var name = $('.name').val();
-        var email = $('.email').val();
+        var name = $('#inputNome').val();
+        var email = $('#inputEmail').val();
+        console.log(name,email);
         if(name=='' && email == ''){
             alert("Preencha os campos");
         }else if(name!='' && email !=''){
