@@ -2,11 +2,19 @@
 require __DIR__.'./../Repository/Conn/Conn.php';
 //require __DIR__.'/Model.php';
 
+/**
+ * Modelo de usuário 
+ * 
+ * @property string $name
+ * @property string $email
+ * @property int $id
+ *  
+ */
 class User {
     
     public $name;
     public $email;
-    private $id;
+    public $id;
 
     public function __construct(string $name,string $email)
     {   
@@ -54,16 +62,16 @@ class User {
         foreach($data as $row){
             $users[] = User::toObject($row);
         }
-
+        
         return $users;
     }
-
+    
     /**
      * Converte o objeto para um Array com seus atributos
      *
      * @return void
      */
-    private function toArray(){
+    public function toArray(){
         $array = [
             'nome' => $this->name,
             'email' => $this->email,
@@ -85,7 +93,7 @@ class User {
         $user->id = $array['id'];
         return $user;
     }
-
+    
     /**
      * Salva o objeto no banco de dados
      * ou atualiza se o mesmo id ja existir

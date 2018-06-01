@@ -10,21 +10,14 @@
 </head>
 <body>
     <form action="" class='form'>
-        <input type="text" min=3 placeholder = 'nome' class='name'><br>
-        <input type="email" min=4 placeholder = 'email' class = 'email'><br>
+        <input type="text" min=3 placeholder = 'nome' class='name' required><br>
+        <input type="email" min=4 placeholder = 'email' class = 'email' required><br>
         <input type="submit" class='submit' value ='send'><br>
     </form>
-    <table>
-        <tr>
-            <th>id</th>
-            <th>nome</th>
-            <th>email </th>
-        </tr>
-         <?php
-        // require'./test/testConn.php';
-        require './test/testModel.php';
-        ?>
-    </table>
+    <div class = "table">
+        
+    </div>
     <script src="/public/js/script.js"></script>
+
 </body>
 </html>
