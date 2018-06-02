@@ -34,7 +34,7 @@ switch($_SERVER['REQUEST_METHOD']){
             case'delete':
                 $id = $_GET['id'];
 
-                $user = User::loadFromDb($id);
+                $user = User::load($id);
                 $user->delete();
                 break;
             

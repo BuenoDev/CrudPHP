@@ -65,14 +65,17 @@ $(document).ready(function(){
         tdId = $('.'+tdId).html();
         var confirmString = "Tem certeza que deseja deletar? ID="+tdId;
         
-        if(confirm(confirmString)){
-            $(this).hide();
+        alertify.confirm(confirmString,function(){
+            //$(this).hide();
             $.get(controllerURL,{
                 'call':'delete',
                 'id': tdId
             });
             reloadTable();
-        }
+        });
+       
     });
+
+    $('table').pointPoint();
 });
 

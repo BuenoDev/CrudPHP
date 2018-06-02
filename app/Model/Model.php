@@ -8,20 +8,20 @@ interface Model{
      * @param array $array
      * @return Object
      */
-    //private static function toObject(array $array);
+    public static function toObject(array $array);
     /**
      * Transforma um objeto em um array com seus atributos
      *
      * @return array
      */
-    function toArray();
+    public function toArray();
     /**
      * Carrega um objeto de determinada id
      *
      * @param integer $id
      * @return object
      */
-    public function load(int $id);
+    public static function load(int $id);
     /**
      * Carrega todos os objetos da classe
      *

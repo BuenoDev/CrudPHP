@@ -1,6 +1,6 @@
 <?php
 require __DIR__.'./../Repository/Conn/Conn.php';
-//require __DIR__.'/Model.php';
+require __DIR__.'/Model.php';
 
 /**
  * Modelo de usuário 
@@ -10,7 +10,7 @@ require __DIR__.'./../Repository/Conn/Conn.php';
  * @property int $id
  *  
  */
-class User {
+class User implements Model{
     
     public $name;
     public $email;
@@ -32,7 +32,7 @@ class User {
      * @param integer $id
      * @return User
      */
-    public static function loadFromDb(int $id){
+    public static function load(int $id){
     
         $table = 'test';
         $conn = new Conn();
@@ -85,7 +85,7 @@ class User {
      * @param array $array
      * @return User
      */
-    private static function toObject(array $array){
+    public static function toObject(array $array){
         $user = new User(
             $array['nome'],
             $array['email']

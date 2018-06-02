@@ -18,20 +18,23 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
+    <!-- Alertfy.js -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/alertify.min.css"/>
+
+    <!--PointToPoint-->
+    <script src="/public/plugins/jquery.pointpoint/jquery.pointpoint.js"></script>
+    <script src="/public/plugins/jquery.pointpoint/transform.js"></script>
+
+    <link rel="stylesheet" href="/public/plugins/jquery.pointpoint/jquery.pointpoint.css">
+
      <script src="/public/js/script.js"></script>
 </head>
 <body>
-<!--
-    <form action="" class='form'>
-        <input type="text" min=3 placeholder = 'nome' class='name' required><br>
-        <input type="email" min=4 placeholder = 'email' class = 'email' required><br>
-        <input type="submit" class='submit' value ='send'><br>
-    </form>
-    <div class = "table">
-        
-    </div>
-    -->
-   
+
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -58,7 +61,7 @@
 				</div>
 				
 				<button type="submit" class="btn btn-primary">
-					Submit
+					Enviar
 				</button>
 			</form>
 			
