@@ -21,10 +21,14 @@ switch($_SERVER['REQUEST_METHOD']){
                 $name = $_POST['name'];
                 $email = $_POST['email'];
 
-                $user = User::loadFromDb($id);
+                $user = User::load($id);
                 if($name != null or $name != '') $user->name = $name;
                 if($email != null or $email != '') $user->email = $email;
                 $user->save();
+                break;
+
+            default:    
+                echo'Ajax error';
                 break;
         }
 
@@ -46,6 +50,10 @@ switch($_SERVER['REQUEST_METHOD']){
                 $users = User::loadAll();
 
                 echo json_encode($users);
+                break;
+            
+            default:    
+                echo'Ajax error';
                 break;
 
         }

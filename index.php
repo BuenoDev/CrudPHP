@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Crud PHP</title>
     <!-- <link rel="stylesheet" href="./public/css/master.css"> -->
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -31,11 +31,16 @@
 
     <link rel="stylesheet" href="/public/plugins/jquery.pointpoint/jquery.pointpoint.css">
 
+    <!--FontAwsome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!--Self-->
      <script src="/public/js/script.js"></script>
 </head>
 <body>
-
+    
     <div class="container-fluid">
+        <!--Form-->
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
@@ -60,16 +65,41 @@
 					<input type="email" class="form-control" id="inputEmail" required/>
 				</div>
 				
-				<button type="submit" class="btn btn-primary">
+				<button type="submit" id="btnSubmit" class="btn btn-primary">
 					Enviar
 				</button>
 			</form>
 			
 		</div>
-	</div>
+    </div>
+        <!--Table-->
     <div class="row">
         <div class="col-md-2 col-sm-0"></div>
         <div class="col-md-8 col-sm-12">
+            <form id="updateForm">
+				<div class="form-group">
+					 
+					<label for="updateNome">
+						Nome de usuário
+					</label>
+					<input type="text" class="form-control" id="updateNome" required/>
+				</div>
+				<div class="form-group">
+					 
+					<label for="updateEmail">
+						E-mail
+					</label>
+                    <input type="email" class="form-control" id="updateEmail" required/>
+                   
+                </div> 
+                <button  id="btnUpdate" class="btn btn-success">
+				Atualizar
+				</button>
+				<button id="btnCancel" class="btn btn-default"> 
+                Cancelar
+                </button>
+            </form>
+            
             <table class="table table-hover table-striped">
 				
             </table>
