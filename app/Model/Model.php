@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Interface de Modelo de dados,
+ * qualquer classe de modelo que implementar
+ * essa interface poderá realizar as operações de 
+ * CRUD através de seus proprios metodos
+ */
 interface Model{
 
     /**

@@ -121,12 +121,14 @@ $(document).ready(function(){
         });
     });
     
+    //Cancela update
     $('#btnCancel').click(function(){
         $('#inputNome').val(null);
         $('#inputEmail').val(null);
         $('#updateForm').hide();
     });
 
+    //Plugin bonitinho
     $('table').pointPoint();
 });
 

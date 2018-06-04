@@ -2,7 +2,12 @@
 
 require'./../Model/User.php';
 
-
+/**
+ * Arquivos de rotas para as requisições AJAX 
+ * que utilizam o atributo 'call' da requisição 
+ * para especificar qual função será utilizada
+ * 
+ */
 switch($_SERVER['REQUEST_METHOD']){
     case'POST':
         switch($_POST['call']){
@@ -46,7 +51,6 @@ switch($_SERVER['REQUEST_METHOD']){
              * Retorna uma lista de usuarios no formato JSON
              */
             case'renderTable':
-                static $rowId = 0;
                 $users = User::loadAll();
 
                 echo json_encode($users);

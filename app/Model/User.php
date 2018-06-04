@@ -1,6 +1,7 @@
 <?php
-require __DIR__.'./../Repository/Conn/Conn.php';
-require __DIR__.'/Model.php';
+require_once __DIR__.'./../Repository/Conn/Conn.php';
+require_once __DIR__.'./../Repository/Conn/Config.php';
+require_once __DIR__.'/Model.php';
 
 /**
  * Modelo de usuário 
@@ -10,8 +11,15 @@ require __DIR__.'/Model.php';
  * @property int $id
  *  
  */
+
 class User implements Model{
     
+    
+    /**
+     * Tabela no BD referente ao objeto User
+     */
+    private const table = 'user';
+
     public $name;
     public $email;
     public $id;
@@ -34,7 +42,7 @@ class User implements Model{
      */
     public static function load(int $id){
     
-        $table = 'test';
+        $table = self::table;
         $conn = new Conn();
         $userData = $conn->findById($table,$id);
 
@@ -53,7 +61,7 @@ class User implements Model{
      */
     public static function loadAll(){
 
-        $table = 'test';
+        $table = self::table;
         $conn = new Conn();
 
         $data = $conn->findAll($table);
@@ -73,7 +81,7 @@ class User implements Model{
      */
     public function toArray(){
         $array = [
-            'nome' => $this->name,
+            'name' => $this->name,
             'email' => $this->email,
             'id' => $this->id
         ];
@@ -87,7 +95,7 @@ class User implements Model{
      */
     public static function toObject(array $array){
         $user = new User(
-            $array['nome'],
+            $array['name'],
             $array['email']
         );
         $user->id = $array['id'];
@@ -102,7 +110,7 @@ class User implements Model{
      */
     public function save(){
         
-        $table = 'test';
+        $table = self::table;
         $conn = new Conn();
 
         if($this->id == null){
@@ -118,7 +126,7 @@ class User implements Model{
      * @return boolean
      */
     public function delete(){
-        $table = 'test';
+        $table = self::table;
         $conn = new Conn();
 
         return $conn->deleteById($table,$this->id);

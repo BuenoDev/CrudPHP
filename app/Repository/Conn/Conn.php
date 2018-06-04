@@ -3,10 +3,12 @@
 /**
  * Interface de conexao com o banco de dados
  * 
- * Padrões Factory e Active Record
+ * Utilizando o pradrão de projeto  Active Record
  * 
  * @author Gustavo Bueno <gbueno360@gmail.com>
  */
+
+ require_once __DIR__.'./Config.php';
 class Conn{
 
     private $servername;
@@ -28,10 +30,10 @@ class Conn{
      * @return void
      */
     private function setDefaultConfig(){
-        $this->servername = 'localhost';
-        $this->dbName = 'interagir';
-        $this->username = 'root';
-        $this->password = '';
+        $this->servername = Config::servername;
+        $this->dbName     = Config::dbName;
+        $this->username   = Config::username;
+        $this->password   = Config::password;
     }
 
     /**
