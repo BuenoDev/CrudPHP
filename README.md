@@ -25,8 +25,8 @@ Depois, em app/Repository/config.php, coloque os dados de conexão do seu banco 
 
 Agora que está tudo configurado, é só rodar a aplicação com o Xamp ou se preferir, utilizar o servidor imbutido do PHP >= 5.4 digitando no terminal:
 
-´´´
+'''
 php -S localhost:8000
-´´´
+'''
 
 ## Agora é só testar!
